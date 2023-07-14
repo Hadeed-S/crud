@@ -53,11 +53,13 @@ async function handlePostRequest(req, res) {
 }
 
 async function handlePutRequest(req, res) {
+  console.log("in pull");
   // Perform PUT request logic
   try {
     const { id, Fact } = req.body;
     const client = await clientPromise;
     const db = client.db("test");
+    console.log("id: ", id, " fact: ", Fact);
     const result = await db
       .collection("CatFact")
       .updateOne(

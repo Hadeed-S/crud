@@ -1,22 +1,22 @@
 import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
-import styles from "@/styles/Home.module.css";
-import { useEffect } from "react";
+import { Fragment, useEffect, useState } from "react";
 import axios from "axios";
-
+import { useDispatch, useSelector } from "react-redux";
+import { saveNewFact } from "@/reducers/reducers";
+import Navbar from "@/components/Navbar";
+import { List, Card, Modal, Button } from "antd";
+import ListView from "@/components/ListView";
 export default function Home() {
-  useEffect(() => {
-    axios
-      .get("https://catfact.ninja/facts")
-      .then(function (response) {
-        // handle success
-        console.log(response.data.data);
-      })
-      .catch(function (error) {
-        // handle error
-        console.log(error);
-      });
-  }, []);
-  return <div>hi</div>;
+  const [inp, setInp] = useState();
+  const dispatch = useDispatch();
+  const ctx = useSelector((state) => state.facts);
+
+  return (
+    <Fragment>
+      <Navbar />
+      <ListView></ListView>
+    </Fragment>
+  );
 }

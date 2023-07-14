@@ -1,0 +1,16 @@
+.layout{
+    /* border: 2px solid red; */
+    max-width: 1000px;
+    margin: auto;
+}
+.navbar{
+    /* border: 2px solid blue; */
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 20px;
+}
+label{
+    font-size: 12px;
+    color: rgb(73, 73, 73);
+}
